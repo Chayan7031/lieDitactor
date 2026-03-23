@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cyber-darker text-white font-sans antialiased overflow-x-hidden;
+  }
+}
+
+.glass-panel {
+  @apply bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl transition-all duration-300;
+}
+
+.glass-input {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl focus:border-cyber-green focus:ring-1 focus:ring-cyber-green outline-none transition-all duration-300 text-white placeholder-white/40;
+}
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.scanline {
+  width: 100%;
+  height: 4px;
+  z-index: 50;
+  position: absolute;
+  pointer-events: none;
+  background: #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.5);
+  opacity: 0.8;
+  animation: scanline 2.5s ease-in-out infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Custom Scrollbar for a sleek look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41; 
+}
